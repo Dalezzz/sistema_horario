@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "postbuild": "npx prisma migrate deploy",
+    "postbuild": "node scripts/migrate-deploy-if-dburl.js",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
