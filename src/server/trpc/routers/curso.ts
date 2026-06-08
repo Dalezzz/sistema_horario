@@ -199,7 +199,6 @@ export const cursoRouter = createTRPCRouter({
         where: { id: input.id },
         data: { 
           aperturado: input.aperturado,
-          motivoAperturaExcepcional: input.aperturado ? input.motivoAperturaExcepcional : null
         },
       });
     }),

@@ -506,7 +506,6 @@ export default function CursosPage() {
                               const esExtraordinario = periodoActivo?.nombre.includes('Extraordinario');
                               
                               if (!esExtraordinario && esImpar !== cicloImpar) {
-                                setAperturaExcepcionalId(c.id);
                                 setShowAperturaModal(true);
                                 return;
                               }

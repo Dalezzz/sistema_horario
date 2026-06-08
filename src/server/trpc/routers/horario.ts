@@ -564,7 +564,18 @@ export const horarioRouter = createTRPCRouter({
             horasTeoria: dg.grupo.curso.horasTeoria,
             horasPractica: dg.grupo.curso.horasPractica,
             horasLaboratorio: dg.grupo.curso.horasLaboratorio,
-            requiereLaboratorio: dg.grupo.curso.requiereLaboratorio
+            requiereLaboratorio: dg.grupo.curso.requiereLaboratorio,
+            workloads: [
+              ...(dg.grupo.curso.horasTeoria > 0
+                ? [{ docenteId: docente.id, tipo: 'TEORIA' as const, horas: dg.grupo.curso.horasTeoria }]
+                : []),
+              ...(dg.grupo.curso.horasPractica > 0
+                ? [{ docenteId: docente.id, tipo: 'PRACTICA' as const, horas: dg.grupo.curso.horasPractica }]
+                : []),
+              ...(dg.grupo.curso.horasLaboratorio > 0
+                ? [{ docenteId: docente.id, tipo: 'LABORATORIO' as const, horas: dg.grupo.curso.horasLaboratorio }]
+                : []),
+            ],
           })),
           aulas: aulas.map(a => ({
             id: a.id,

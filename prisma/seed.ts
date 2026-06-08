@@ -259,7 +259,9 @@ async function main() {
   ];
 
   // ── Grupos ─────────────────────────────────────────
-  const gruposCreated = [];
+  type CursoSeed = (typeof cursos)[number];
+  type GrupoSeed = Awaited<ReturnType<typeof prisma.grupo.create>>;
+  const gruposCreated: Array<GrupoSeed & { curso: CursoSeed }> = [];
   const sharedCourseCodes = ['EE-704', 'EI-901', 'EI-X01', 'EE-102', 'EE-504'];
   
   // Función para crear grupos y asignaciones por periodo

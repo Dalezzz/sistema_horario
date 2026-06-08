@@ -100,7 +100,7 @@ export default function PeriodosPage() {
         {canEdit && !isGuest && !isDocente && (
           <button
             onClick={() => {
-              setForm({ nombre: '', fechaInicio: '', fechaFin: '', activo: false });
+              setForm({ nombre: '', fechaInicio: '', fechaFin: '', activo: false, estado: 'PLANIFICACION' });
               setShowModal(true);
             }}
             className="btn-primary"
